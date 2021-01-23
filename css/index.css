@@ -5486,3 +5486,6 @@ blockquote.pullquote.right {
   background-color: var(--readmode-light-color) !important;
   color: var(--font-color);
 }
+.test {
+  background-color: #f00;
+}
