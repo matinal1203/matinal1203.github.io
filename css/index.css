@@ -5486,6 +5486,41 @@ blockquote.pullquote.right {
   background-color: var(--readmode-light-color) !important;
   color: var(--font-color);
 }
-.test {
-  background-color: #f00;
+.myDingyi {
+  background-color: #f4f5db;
+  padding: 6px 3% 6px 3%;
+  font-weight: 900;
+  border-radius: 25px;
+  color: #23689b;
+  font-size: 140%;
+  position: relative;
+  margin-top: 10px;
+  z-index: 2;
+  margin-right: 88%;
+  text-align: center;
+  width: 150px;
+}
+.myPurpleBox {
+  background: #f8f1f1;
+  padding: 6px 3% 6px 3%;
+  border-radius: 25px;
+  font-weight: 600;
+  color: #d68060;
+  position: relative;
+}
+.myGrayBox {
+  background: #faf9f9;
+  padding: 6px 3% 6px 3%;
+  border-radius: 25px;
+  font-weight: 400;
+  color: #494949;
+  position: relative;
+}
+.myYellowBox {
+  background: #faf6e9;
+  padding: 6px 3% 6px 3%;
+  border-radius: 25px;
+  font-weight: 400;
+  color: #494949;
+  position: relative;
 }
