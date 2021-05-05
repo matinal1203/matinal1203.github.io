@@ -2,7 +2,7 @@ import io
 import re
 
 typefile = "2D"  # 2D or 3D
-filePath = "arcsin_function.html"
+filePath = "limit_sequence.html"
 
 if typefile == "2D":
 	try:
