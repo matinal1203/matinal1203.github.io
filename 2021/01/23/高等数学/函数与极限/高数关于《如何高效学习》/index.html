@@ -1,0 +1,275 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>关于高数的一点想法(持续更新中......) | 清晨笔记</title><meta name="keywords" content="高等数学,数学方法,学习方法"><meta name="author" content="Qingchen"><meta name="copyright" content="Qingchen"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="本章介绍函数和函数的一些性质等基本概念。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于高数的一点想法(持续更新中......)">
+<meta property="og:url" content="http://example.com/2021/01/23/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E5%87%BD%E6%95%B0%E4%B8%8E%E6%9E%81%E9%99%90/%E9%AB%98%E6%95%B0%E5%85%B3%E4%BA%8E%E3%80%8A%E5%A6%82%E4%BD%95%E9%AB%98%E6%95%88%E5%AD%A6%E4%B9%A0%E3%80%8B/index.html">
+<meta property="og:site_name" content="清晨笔记">
+<meta property="og:description" content="本章介绍函数和函数的一些性质等基本概念。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://gitee.com/noteblogs/book_way/raw/master/dojm2h.webp">
+<meta property="article:published_time" content="2021-01-23T01:08:24.000Z">
+<meta property="article:modified_time" content="2021-05-08T13:19:50.743Z">
+<meta property="article:author" content="Qingchen">
+<meta property="article:tag" content="高等数学">
+<meta property="article:tag" content="方法试验">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gitee.com/noteblogs/book_way/raw/master/dojm2h.webp"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2021/01/23/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E5%87%BD%E6%95%B0%E4%B8%8E%E6%9E%81%E9%99%90/%E9%AB%98%E6%95%B0%E5%85%B3%E4%BA%8E%E3%80%8A%E5%A6%82%E4%BD%95%E9%AB%98%E6%95%88%E5%AD%A6%E4%B9%A0%E3%80%8B/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><script async="async" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>(adsbygoogle = window.adsbygoogle || []).push({
+  google_ad_client: 'ca-pub-2842196335325865',
+  enable_page_level_ads: 'true'
+});</script><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?9f887c2383f0f944047fb164a95c47fb";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#121212","position":"bottom-left"},
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+};
+
+const saveToLocal = {
+  // ttl 單位是 天
+  set: function setWithExpiry(key, value, ttl) {
+    if (ttl === 0) return
+    const now = new Date()
+    const expiryDay = ttl * 86400000
+    const item = {
+      value: value,
+      expiry: now.getTime() + expiryDay,
+    }
+    localStorage.setItem(key, JSON.stringify(item))
+  },
+
+  get: function getWithExpiry(key) {
+    const itemStr = localStorage.getItem(key)
+
+    if (!itemStr) {
+      return undefined
+    }
+    const item = JSON.parse(itemStr)
+    const now = new Date()
+
+    if (now.getTime() > item.expiry) {
+      localStorage.removeItem(key)
+      return undefined
+    }
+    return item.value
+  }
+}
+
+// https://stackoverflow.com/questions/16839698/jquery-getscript-alternative-in-native-javascript
+const getScript = url => new Promise((resolve, reject) => {
+  const script = document.createElement('script')
+  script.src = url
+  script.async = true
+  script.onerror = reject
+  script.onload = script.onreadystatechange = function() {
+    const loadState = this.readyState
+    if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+    script.onload = script.onreadystatechange = null
+    resolve()
+  }
+  document.head.appendChild(script)
+})</script><script id="config_change">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021-05-08 21:19:50'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(function () {  window.activateDarkMode = function () {
+    document.documentElement.setAttribute('data-theme', 'dark')
+    if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+    }
+  }
+  window.activateLightMode = function () {
+    document.documentElement.setAttribute('data-theme', 'light')
+   if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+    }
+  }
+  const autoChangeMode = 'false'
+  const t = saveToLocal.get('theme')
+  if (autoChangeMode === '1') {
+    const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+    const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+    const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+    const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+    if (t === undefined) {
+      if (isLightMode) activateLightMode()
+      else if (isDarkMode) activateDarkMode()
+      else if (isNotSpecified || hasNoSupport) {
+        const now = new Date()
+        const hour = now.getHours()
+        const isNight = hour <= 6 || hour >= 18
+        isNight ? activateDarkMode() : activateLightMode()
+      }
+      window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+        if (saveToLocal.get('theme') === undefined) {
+          e.matches ? activateDarkMode() : activateLightMode()
+        }
+      })
+    } else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else if (autoChangeMode === '2') {
+    const now = new Date()
+    const hour = now.getHours()
+    const isNight = hour <= 6 || hour >= 18
+    if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+    else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else {
+    if (t === 'dark') activateDarkMode()
+    else if (t === 'light') activateLightMode()
+  }const asideStatus = saveToLocal.get('aside-status')
+if (asideStatus !== undefined) {
+   if (asideStatus === 'hide') {
+     document.documentElement.classList.add('hide-aside')
+   } else {
+     document.documentElement.classList.remove('hide-aside')
+   }
+}})()</script><meta name="generator" content="Hexo 5.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="https://gitee.com/noteblogs/book_way/raw/master/img/headImage.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">5</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">10</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://gitee.com/noteblogs/book_way/raw/master/dojm2h.webp')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">清晨笔记</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">关于高数的一点想法(持续更新中......)</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-01-23T01:08:24.000Z" title="发表于 2021-01-23 09:08:24">2021-01-23</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-05-08T13:19:50.743Z" title="更新于 2021-05-08 21:19:50">2021-05-08</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/">高等数学</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E6%96%B9%E6%B3%95%E8%AF%95%E9%AA%8C/">方法试验</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h3 id="给自己的学习流程">给自己的学习流程</h3>
+<h4 id="1-思考定义">1.思考定义</h4>
+<p>从一个栗子开始吧。</p>
+<p>下面是数列极限的定义。</p>
+<p>$$\begin{align}设{x_n}为一数列，\cr如果存在常数a，\cr对于任意给定的正数\varepsilon(无论它多么小)，\cr总存在正整数N，\cr使得当n&gt;N时，\cr不等式|x_n-a|&lt;\varepsilon都成立，\cr那么就称常数a为数列{x_n}的极限，\cr或称数列{x_n}收敛于a，\cr记为：\lim_{n\to \infty}x_n=a,或x_n\to a(x_n \to \infty)\end{align}$$</p>
+<div class="note blue no-icon flat"><p>挨个分析一下，定义说了啥：</p>
+<p>1、 ${x_n}$是一个数列,而且这个数列有无限项。</p>
+<p>2、 有一个常数$a$。</p>
+<p>3、 有一个你可以随便给的数$\varepsilon$,不管你说它有多大，也不管有多小；我觉得这个数可能是用来反制杠精的。（不知是不是那位大主教一派的信徒们）</p>
+<p>4、 有一个正整数N（ps：为啥是个正整数？正整数是因为数列的项数只能是正整数，咳咳…严格说数列的项数也可以是0，但没啥意义），这个N明显是用来画界限的，N之前是有限项（ps：有多少项，我们能数得过来的！），N之后那就有无限个项了。</p>
+<p>5、 “当$n&gt;N$时”：意思是咱们只关心N之后得无限项，至于前面的有限项他们值有多大、单不单调，完全无所谓，不影响极限。</p>
+<p>6、 “不等式$|x_n-a|&lt;\varepsilon$都成立”：这里就是解决杠精的关键了。这个$\varepsilon$是可是你随意给我的啊，它多小也都是你说的，我可没碰它。我现在都能够找的一个N（ps：你问我在哪找的？我刚刚在草稿纸上找的！要算好半天的，学渣的眼泪不争气地流了下来…，喵的是，这个N是用$\varepsilon$表示的：$N=f(\varepsilon)$，不管杠精怎么出招，我都能瞬间找出N反制杠精。），在N之后得每一项的值减去了$a$都要比$\varepsilon$小。（ps：你只说比$\varepsilon$小就行，那是不是$\varepsilon&gt;|x_{N+2}-a|&gt;|x_{N+1}-a|$也管？管，确实管。那振荡间断点是咋回事？）</p>
+<p>7、 很好，现在，我就可以很明确地告诉你，这个$a$就是这个数列的极限。（ps：终于是报了当年被怼之仇啊…）</p>
+<p>8、 极限是a、收敛于a，一个意思。</p>
+<p>9、 你可以把极限这样写，哎，也可以那样写…</p>
+</div>
+<h4 id="2-做个模型">2.做个模型</h4>
+<p>上个步骤的用来理解定义的9句话还可以用来干嘛。</p>
+<p>那就是建模了。</p>
+<p>其实极限的定义就是用来理解极限的一个很好的模型，不仅逻辑严谨，语言也更加简练！</p>
+<p>就是因为太简练了，处处都是知识点，让我这个学渣学起来是一步一个坎啊…</p>
+<p>学神心中自有高级模型（ps：不知是几维的啊），可兼容所有高等数学课本上的文字模型，那自然是看一眼就融会贯通啊，羡慕！</p>
+<p>学霸心中也早就打下坚实的数学逻辑基础，多看几眼，建模速度那也是六的飞起啊，再次羡慕！</p>
+<p>学渣心中…额，我心中…昨晚排位又连跪！我现在就要补回来！模型能让我上王者吗！嫌弃！</p>
+<p>唉，既然心中满是对游戏那深沉的爱，那就试试其它方法吧，总不能在一棵树上吊死。</p>
+<p>突然想到，为啥会有一个战术叫“题海战术”了，学神与学霸用它来为自己的模型查缺补漏，变得更加牛批。</p>
+<p>学渣用它不断虐自己，不对，是打开心扉，让自己忘记游戏。一遍一遍的做题，一遍一遍的用题去理解书本定义模型，试图窥视学霸与学神的世界！</p>
+<p>you：说了半天，你也没说怎么建模啊？这也太水了吧。</p>
+<p>无法反驳！我也是学别人的—《Learn More Study Less：如何高效学习》[加]斯科特 杨（Scott Young）一书中，第一部分，模型章节。掌阅里这本书的免费章节刚好有这部分内容，巧不巧，有兴趣可以看看。（ps：免费给人家做了广告，又是打白工的一天。）</p>
+<p>这么重要的东西我竟然没有一点自己的墨水，深刻反省，以后补上。（ps：当前时间2021年5月8日20:21:07）</p>
+<h4 id="3-找题做">3.找题做</h4>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Qingchen</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2021/01/23/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E5%87%BD%E6%95%B0%E4%B8%8E%E6%9E%81%E9%99%90/%E9%AB%98%E6%95%B0%E5%85%B3%E4%BA%8E%E3%80%8A%E5%A6%82%E4%BD%95%E9%AB%98%E6%95%88%E5%AD%A6%E4%B9%A0%E3%80%8B/">http://example.com/2021/01/23/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E5%87%BD%E6%95%B0%E4%B8%8E%E6%9E%81%E9%99%90/%E9%AB%98%E6%95%B0%E5%85%B3%E4%BA%8E%E3%80%8A%E5%A6%82%E4%BD%95%E9%AB%98%E6%95%88%E5%AD%A6%E4%B9%A0%E3%80%8B/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">清晨笔记</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/">高等数学</a><a class="post-meta__tags" href="/tags/%E6%96%B9%E6%B3%95%E8%AF%95%E9%AA%8C/">方法试验</a></div><div class="post_share"><div class="social-share" data-image="https://gitee.com/noteblogs/book_way/raw/master/dojm2h.webp" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 打赏<div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="https://i.loli.net/2021/02/03/DOgz6TuGtN87USi.jpg" target="_blank"><img class="post-qr-code-img" src="https://i.loli.net/2021/02/03/DOgz6TuGtN87USi.jpg" alt="wechat"/></a><div class="post-qr-code-desc">wechat</div></li><li class="reward-item"><a href="https://i.loli.net/2021/02/03/cqNLMreBE8uzaAw.jpg" target="_blank"><img class="post-qr-code-img" src="https://i.loli.net/2021/02/03/cqNLMreBE8uzaAw.jpg" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2021/01/23/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E5%87%BD%E6%95%B0%E4%B8%8E%E6%9E%81%E9%99%90/%E6%9E%81%E9%99%90/"><img class="prev-cover" src="https://gitee.com/noteblogs/book_way/raw/master/dojm2h.webp" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">极限</div></div></a></div><div class="next-post pull-right"><a href="/2020/11/19/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E5%87%BD%E6%95%B0%E4%B8%8E%E6%9E%81%E9%99%90/%E5%87%BD%E6%95%B0%E7%9A%84%E8%BF%9E%E7%BB%AD%E6%80%A7/"><img class="next-cover" src="https://gitee.com/noteblogs/book_way/raw/master/dojm2h.webp" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">函数的连续性</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2021/01/23/高等数学/函数与极限/函数/" title="函数性质"><img class="cover" src="https://gitee.com/noteblogs/book_way/raw/master/dojm2h.webp" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-01-23</div><div class="title">函数性质</div></div></a></div><div><a href="/2020/11/19/高等数学/函数与极限/函数的连续性/" title="函数的连续性"><img class="cover" src="https://gitee.com/noteblogs/book_way/raw/master/dojm2h.webp" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-11-19</div><div class="title">函数的连续性</div></div></a></div><div><a href="/2021/01/23/高等数学/函数与极限/极限/" title="极限"><img class="cover" src="https://gitee.com/noteblogs/book_way/raw/master/dojm2h.webp" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-01-23</div><div class="title">极限</div></div></a></div><div><a href="/2020/11/19/高等数学/背诵公式/必背公式/" title="必背公式"><img class="cover" src="https://gitee.com/noteblogs/book_way/raw/master/dojm2h.webp" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-11-19</div><div class="title">必背公式</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" src="https://gitee.com/noteblogs/book_way/raw/master/img/headImage.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">Qingchen</div><div class="author-info__description"></div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">5</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">10</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">测试阶段...个人笔记用</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%99%E8%87%AA%E5%B7%B1%E7%9A%84%E5%AD%A6%E4%B9%A0%E6%B5%81%E7%A8%8B"><span class="toc-number">1.</span> <span class="toc-text">给自己的学习流程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E6%80%9D%E8%80%83%E5%AE%9A%E4%B9%89"><span class="toc-number">1.1.</span> <span class="toc-text">1.思考定义</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E5%81%9A%E4%B8%AA%E6%A8%A1%E5%9E%8B"><span class="toc-number">1.2.</span> <span class="toc-text">2.做个模型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E6%89%BE%E9%A2%98%E5%81%9A"><span class="toc-number">1.3.</span> <span class="toc-text">3.找题做</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2021/01/23/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E5%87%BD%E6%95%B0%E4%B8%8E%E6%9E%81%E9%99%90/%E5%87%BD%E6%95%B0/" title="函数性质"><img src="https://gitee.com/noteblogs/book_way/raw/master/dojm2h.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="函数性质"/></a><div class="content"><a class="title" href="/2021/01/23/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E5%87%BD%E6%95%B0%E4%B8%8E%E6%9E%81%E9%99%90/%E5%87%BD%E6%95%B0/" title="函数性质">函数性质</a><time datetime="2021-01-23T01:08:24.000Z" title="发表于 2021-01-23 09:08:24">2021-01-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/01/23/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E5%87%BD%E6%95%B0%E4%B8%8E%E6%9E%81%E9%99%90/%E6%9E%81%E9%99%90/" title="极限"><img src="https://gitee.com/noteblogs/book_way/raw/master/dojm2h.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="极限"/></a><div class="content"><a class="title" href="/2021/01/23/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E5%87%BD%E6%95%B0%E4%B8%8E%E6%9E%81%E9%99%90/%E6%9E%81%E9%99%90/" title="极限">极限</a><time datetime="2021-01-23T01:08:24.000Z" title="发表于 2021-01-23 09:08:24">2021-01-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/01/23/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E5%87%BD%E6%95%B0%E4%B8%8E%E6%9E%81%E9%99%90/%E9%AB%98%E6%95%B0%E5%85%B3%E4%BA%8E%E3%80%8A%E5%A6%82%E4%BD%95%E9%AB%98%E6%95%88%E5%AD%A6%E4%B9%A0%E3%80%8B/" title="关于高数的一点想法(持续更新中......)"><img src="https://gitee.com/noteblogs/book_way/raw/master/dojm2h.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="关于高数的一点想法(持续更新中......)"/></a><div class="content"><a class="title" href="/2021/01/23/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E5%87%BD%E6%95%B0%E4%B8%8E%E6%9E%81%E9%99%90/%E9%AB%98%E6%95%B0%E5%85%B3%E4%BA%8E%E3%80%8A%E5%A6%82%E4%BD%95%E9%AB%98%E6%95%88%E5%AD%A6%E4%B9%A0%E3%80%8B/" title="关于高数的一点想法(持续更新中......)">关于高数的一点想法(持续更新中......)</a><time datetime="2021-01-23T01:08:24.000Z" title="发表于 2021-01-23 09:08:24">2021-01-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/11/19/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E5%87%BD%E6%95%B0%E4%B8%8E%E6%9E%81%E9%99%90/%E5%87%BD%E6%95%B0%E7%9A%84%E8%BF%9E%E7%BB%AD%E6%80%A7/" title="函数的连续性"><img src="https://gitee.com/noteblogs/book_way/raw/master/dojm2h.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="函数的连续性"/></a><div class="content"><a class="title" href="/2020/11/19/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E5%87%BD%E6%95%B0%E4%B8%8E%E6%9E%81%E9%99%90/%E5%87%BD%E6%95%B0%E7%9A%84%E8%BF%9E%E7%BB%AD%E6%80%A7/" title="函数的连续性">函数的连续性</a><time datetime="2020-11-19T13:41:37.000Z" title="发表于 2020-11-19 21:41:37">2020-11-19</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/11/19/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E8%83%8C%E8%AF%B5%E5%85%AC%E5%BC%8F/%E5%BF%85%E8%83%8C%E5%85%AC%E5%BC%8F/" title="必背公式"><img src="https://gitee.com/noteblogs/book_way/raw/master/dojm2h.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="必背公式"/></a><div class="content"><a class="title" href="/2020/11/19/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E8%83%8C%E8%AF%B5%E5%85%AC%E5%BC%8F/%E5%BF%85%E8%83%8C%E5%85%AC%E5%BC%8F/" title="必背公式">必背公式</a><time datetime="2020-11-19T13:41:37.000Z" title="发表于 2020-11-19 21:41:37">2020-11-19</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2021 By Qingchen</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (true){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    loader: {
+      source: {
+        '[tex]/amsCd': '[tex]/amscd'
+      }
+    },
+    tex: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"]],
+      tags: 'ams'
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, ''],
+        addClass: [200,() => {
+          document.querySelectorAll('mjx-container:not([display=\'true\']').forEach( node => {
+            const target = node.parentNode
+            if (!target.classList.contains('has-jax')) {
+              target.classList.add('mathjax-overflow')
+            }
+          })
+        }, '', false]
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typeset()
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
